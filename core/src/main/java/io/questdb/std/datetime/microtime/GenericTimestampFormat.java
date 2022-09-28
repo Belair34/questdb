@@ -381,6 +381,7 @@ public class GenericTimestampFormat extends AbstractDateFormat {
     public long parse(CharSequence in, int lo, int hi, DateLocale locale) throws NumericException {
         int day = 1;
         int month = 1;
+        int week = 0;
         int year = 1970;
         int hour = 0;
         int minute = 0;
@@ -700,6 +701,6 @@ public class GenericTimestampFormat extends AbstractDateFormat {
 
         TimestampFormatUtils.assertNoTail(pos, hi);
 
-        return TimestampFormatUtils.compute(locale, era, year, month, day, hour, minute, second, millis, micros, timezone, offset, hourType);
+        return TimestampFormatUtils.compute(locale, era, year, month, week, day, hour, minute, second, millis, micros, timezone, offset, hourType);
     }
 }

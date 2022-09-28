@@ -1519,7 +1519,7 @@ public class TimestampFormatCompiler {
         int assertNoTailIndex = asm.poolMethod(TimestampFormatUtils.class, "assertNoTail", "(II)V");
         int assertStringIndex = asm.poolMethod(TimestampFormatUtils.class, "assertString", "(Ljava/lang/CharSequence;ILjava/lang/CharSequence;II)I");
         int assertCharIndex = asm.poolMethod(TimestampFormatUtils.class, "assertChar", "(CLjava/lang/CharSequence;II)V");
-        int computeMillisIndex = asm.poolMethod(TimestampFormatUtils.class, "compute", "(Lio/questdb/std/datetime/DateLocale;IIIIIIIIIIJI)J");
+        int computeMillisIndex = asm.poolMethod(TimestampFormatUtils.class, "compute", "(Lio/questdb/std/datetime/DateLocale;IIIIIIIIIIIJI)J");
         int adjustYearIndex = asm.poolMethod(TimestampFormatUtils.class, "adjustYear", "(I)I");
         int parseYearGreedyIndex = asm.poolMethod(TimestampFormatUtils.class, "parseYearGreedy", "(Ljava/lang/CharSequence;II)J");
         int appendEraIndex = asm.poolMethod(TimestampFormatUtils.class, "appendEra", "(Lio/questdb/std/str/CharSink;ILio/questdb/std/datetime/DateLocale;)V");

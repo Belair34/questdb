@@ -24,9 +24,12 @@
 
 package io.questdb.cairo;
 
+import io.questdb.std.CharSequenceHashSet;
 import io.questdb.std.Chars;
 import io.questdb.std.NumericException;
 import io.questdb.std.datetime.DateFormat;
+import io.questdb.std.datetime.DateLocale;
+import io.questdb.std.datetime.TimeZoneRuleFactory;
 import io.questdb.std.datetime.microtime.TimestampFormatUtils;
 import io.questdb.std.str.StringSink;
 import io.questdb.test.tools.TestUtils;
@@ -34,12 +37,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.DateFormatSymbols;
+
 public class PartitionByTest {
     private static final StringSink sink = new StringSink();
 
     @Before
     public void setUp() throws Exception {
         sink.clear();
+    }
+
+    @Test
+    public void testTimestampFormatUtilsCompute() throws NumericException{
+        DateLocale dummyLocale = new DateLocale(DateFormatSymbols.getInstance(), TimeZoneRuleFactory.INSTANCE, new CharSequenceHashSet());
+        TimestampFormatUtils.compute(dummyLocale, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1L, 1);
     }
 
     @Test
