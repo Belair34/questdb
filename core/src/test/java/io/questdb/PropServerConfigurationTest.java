@@ -385,7 +385,7 @@ public class PropServerConfigurationTest {
         env.put("QDB_HTTP_SECURITY_READONLY", "false");
 
         // long size
-        properties.setProperty("cairo.sql.append.page.size", "3G");
+        properties.setProperty("cairo.writer.data.append.page.size", "3G");
         env.put("QDB_CAIRO_WRITER_DATA_APPEND_PAGE_SIZE", "9G");
 
         PropServerConfiguration configuration = new PropServerConfiguration(root, properties, env, LOG, new BuildInformationHolder());
@@ -1107,6 +1107,7 @@ public class PropServerConfigurationTest {
 
     private void assertInputWorkRootCantBeSetTo(Properties properties, String value) throws JsonException {
         try {
+            properties.setProperty(PropertyKey.CAIRO_SQL_COPY_ROOT.getPropertyPath(), value);
             properties.setProperty(PropertyKey.CAIRO_SQL_COPY_WORK_ROOT.getPropertyPath(), value);
             new PropServerConfiguration(root, properties, null, LOG, new BuildInformationHolder());
             Assert.fail("Should fail for " + value);
